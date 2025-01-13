@@ -1,6 +1,9 @@
 import time
 
+import utils
+
 def start_message():
+    """output starting messages at start of cli"""
     msg_list = ["password manager", "[1] generate password", "[2] list passwords", "[3] delete password"]
     
     for msg in msg_list:
@@ -9,12 +12,16 @@ def start_message():
 
 def main():
     start_message()
-    user_option = input("> ")
+    user_option = int(input("> "))
 
-    match int(user_option):
+    match user_option:
         case 1:
-            """generates a password aswell as gets a name and what not"""
+            """generates a password aswell as gets a name and what not, then stores in to file"""
             print("generating password")
+            pwd: utils.Generate = utils.Generate("slorn", True, False)
+            pwd.generate()
+            print(f"{pwd.name} - {pwd.pwd}")
+            del pwd
         case 2:
             """if passwords exist, list them, if not tell the user to go and generate some"""
             print("listing passwords")
