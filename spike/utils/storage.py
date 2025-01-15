@@ -12,10 +12,8 @@ def find_pwd(pwd_name: str): # NOT TESTED
 
                 if current_name == pwd_name[0:4]:
                     return line_number
-                    break
                 else:
                     return -1
-                    break
     else:
         print("cannot delete passwords cause they dont exist, go generate them")
 
@@ -24,7 +22,7 @@ def delete_pwd(line_number: int): # NOT TESTED
     
     pass
 
-def store_pwd(pwd_name: str, pwd: str): # NOT TESTED
+def store_pwd(pwd_name: str, pwd: str): # TESTED AND WORKS
     """store a given password in a certain format obviously"""
     if os.path.exists("storage.txt"):
         with open("storage.txt", "a") as file:
@@ -36,7 +34,7 @@ def store_pwd(pwd_name: str, pwd: str): # NOT TESTED
 
 def list_pwds(): # NOT TESTED
     """list passwords and check if file exists before doing so"""
-    if os.pathexists("storage.txt"):
+    if os.path.exists("storage.txt"):
         with open("storage.txt", "r") as file:
             print(file.read())
     else:

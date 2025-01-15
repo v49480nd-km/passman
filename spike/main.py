@@ -1,6 +1,7 @@
 import time
 
-import utils
+from utils.gen import Generate
+from utils.storage import * 
 
 def start_message():
     """output starting messages at start of cli"""
@@ -18,9 +19,9 @@ def main():
         case 1:
             """generates a password aswell as gets a name and what not, then stores in to file"""
             print("generating password")
-            pwd: utils.Generate = utils.Generate("slorn", True, False)
+            pwd = Generate("slorn", True, False)
             pwd.generate()
-            print(f"{pwd.name} - {pwd.pwd}")
+            store_pwd(pwd.name, pwd.pwd)
             del pwd
         case 2:
             """if passwords exist, list them, if not tell the user to go and generate some"""
