@@ -1,4 +1,4 @@
-import random
+impor random
 
 class Generate:
     def __init__(self, name: str, nums: bool, schars: bool):
